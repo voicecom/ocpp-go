@@ -2,13 +2,13 @@ package main
 
 import (
 	"fmt"
-	"github.com/lorenzodonini/ocpp-go/ocpp1.6/core"
-	"github.com/lorenzodonini/ocpp-go/ocpp1.6/firmware"
-	"github.com/lorenzodonini/ocpp-go/ocpp1.6/localauth"
-	"github.com/lorenzodonini/ocpp-go/ocpp1.6/remotetrigger"
-	"github.com/lorenzodonini/ocpp-go/ocpp1.6/reservation"
-	"github.com/lorenzodonini/ocpp-go/ocpp1.6/smartcharging"
-	"github.com/lorenzodonini/ocpp-go/ocpp1.6/types"
+	"github.com/voicecom/ocpp-go/ocpp1.6/core"
+	"github.com/voicecom/ocpp-go/ocpp1.6/firmware"
+	"github.com/voicecom/ocpp-go/ocpp1.6/localauth"
+	"github.com/voicecom/ocpp-go/ocpp1.6/remotetrigger"
+	"github.com/voicecom/ocpp-go/ocpp1.6/reservation"
+	"github.com/voicecom/ocpp-go/ocpp1.6/smartcharging"
+	"github.com/voicecom/ocpp-go/ocpp1.6/types"
 	"strconv"
 )
 

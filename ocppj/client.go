@@ -2,9 +2,9 @@ package ocppj
 
 import (
 	"fmt"
-	"github.com/lorenzodonini/ocpp-go/ocpp"
-	"github.com/lorenzodonini/ocpp-go/ws"
 	log "github.com/sirupsen/logrus"
+	"github.com/voicecom/ocpp-go/ocpp"
+	"github.com/voicecom/ocpp-go/ws"
 )
 
 // The endpoint initiating the connection to an OCPP server, in an OCPP-J topology.

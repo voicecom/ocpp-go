@@ -2,11 +2,11 @@ package ocpp2_test
 
 import (
 	"fmt"
-	"github.com/lorenzodonini/ocpp-go/ocpp2.0/iso15118"
-	"github.com/lorenzodonini/ocpp-go/ocpp2.0/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
+	"github.com/voicecom/ocpp-go/ocpp2.0/iso15118"
+	"github.com/voicecom/ocpp-go/ocpp2.0/types"
 )
 
 func (suite *OcppV2TestSuite) TestGetInstalledCertificateIdsRequestValidation() {

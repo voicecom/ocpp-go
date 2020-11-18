@@ -1,10 +1,10 @@
 package ocppj_test
 
 import (
-	"github.com/lorenzodonini/ocpp-go/ocppj"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"
+	"github.com/voicecom/ocpp-go/ocppj"
 )
 
 const queueCapacity = 10

@@ -2,12 +2,12 @@ package ocppj_test
 
 import (
 	"fmt"
-	"github.com/lorenzodonini/ocpp-go/ocpp"
-	"github.com/lorenzodonini/ocpp-go/ocppj"
-	"github.com/lorenzodonini/ocpp-go/ws"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/suite"
+	"github.com/voicecom/ocpp-go/ocpp"
+	"github.com/voicecom/ocpp-go/ocppj"
+	"github.com/voicecom/ocpp-go/ws"
 	"gopkg.in/go-playground/validator.v9"
 	"reflect"
 	"testing"

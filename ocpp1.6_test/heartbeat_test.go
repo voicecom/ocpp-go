@@ -2,10 +2,10 @@ package ocpp16_test
 
 import (
 	"fmt"
-	"github.com/lorenzodonini/ocpp-go/ocpp1.6/core"
-	"github.com/lorenzodonini/ocpp-go/ocpp1.6/types"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
+	"github.com/voicecom/ocpp-go/ocpp1.6/core"
+	"github.com/voicecom/ocpp-go/ocpp1.6/types"
 	"time"
 )
 

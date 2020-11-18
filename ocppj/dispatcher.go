@@ -2,9 +2,9 @@ package ocppj
 
 import (
 	"errors"
-	"github.com/lorenzodonini/ocpp-go/ocpp"
-	"github.com/lorenzodonini/ocpp-go/ws"
 	log "github.com/sirupsen/logrus"
+	"github.com/voicecom/ocpp-go/ocpp"
+	"github.com/voicecom/ocpp-go/ws"
 	"sync"
 )
 
