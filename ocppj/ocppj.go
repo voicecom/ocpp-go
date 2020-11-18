@@ -4,9 +4,9 @@ package ocppj
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/lorenzodonini/ocpp-go/ocpp"
 	errors2 "github.com/pkg/errors"
 	log "github.com/sirupsen/logrus"
+	"github.com/voicecom/ocpp-go/ocpp"
 	"gopkg.in/go-playground/validator.v9"
 	"math/rand"
 	"reflect"

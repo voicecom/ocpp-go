@@ -3,10 +3,10 @@ package ocpp16_test
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/lorenzodonini/ocpp-go/ocpp1.6/core"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
+	"github.com/voicecom/ocpp-go/ocpp1.6/core"
 )
 
 type CustomData struct {

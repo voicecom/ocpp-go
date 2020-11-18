@@ -1,7 +1,7 @@
 package smartcharging
 
 import (
-	"github.com/lorenzodonini/ocpp-go/ocpp2.0/types"
+	"github.com/voicecom/ocpp-go/ocpp2.0/types"
 	"reflect"
 )
 

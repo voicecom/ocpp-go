@@ -2,11 +2,11 @@ package ocpp2_test
 
 import (
 	"fmt"
-	"github.com/lorenzodonini/ocpp-go/ocpp2.0/authorization"
-	"github.com/lorenzodonini/ocpp-go/ocpp2.0/types"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 	"github.com/stretchr/testify/require"
+	"github.com/voicecom/ocpp-go/ocpp2.0/authorization"
+	"github.com/voicecom/ocpp-go/ocpp2.0/types"
 )
 
 // Test

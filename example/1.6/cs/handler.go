@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
-	"github.com/lorenzodonini/ocpp-go/ocpp1.6/core"
-	"github.com/lorenzodonini/ocpp-go/ocpp1.6/firmware"
-	"github.com/lorenzodonini/ocpp-go/ocpp1.6/types"
 	log "github.com/sirupsen/logrus"
+	"github.com/voicecom/ocpp-go/ocpp1.6/core"
+	"github.com/voicecom/ocpp-go/ocpp1.6/firmware"
+	"github.com/voicecom/ocpp-go/ocpp1.6/types"
 	"time"
 )
 
