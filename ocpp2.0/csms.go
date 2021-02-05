@@ -2,6 +2,7 @@ package ocpp2
 
 import (
 	"fmt"
+
 	log "github.com/sirupsen/logrus"
 	"github.com/voicecom/ocpp-go/ocpp"
 	"github.com/voicecom/ocpp-go/ocpp2.0/authorization"
@@ -413,10 +414,16 @@ func (cs *csms) SendRequestAsync(clientId string, request ocpp.Request, callback
 	default:
 		return fmt.Errorf("unsupported action %v on CSMS, cannot send request", featureName)
 	}
-	cs.callbacks[clientId] = callback
-	err := cs.server.SendRequest(clientId, request)
+
+	call, err := cs.server.ValidateRequestAndCreateCall(request)
 	if err != nil {
-		delete(cs.callbacks, clientId)
+		return fmt.Errorf("error validating request and creating call message: %v", err)
+	}
+	cs.callbacks[call.UniqueId] = callback
+
+	err = cs.server.SendRequest(clientId, call)
+	if err != nil {
+		delete(cs.callbacks, call.UniqueId)
 		return err
 	}
 	return nil
@@ -573,8 +580,8 @@ func (cs *csms) handleIncomingRequest(chargingStationID string, request ocpp.Req
 }
 
 func (cs *csms) handleIncomingResponse(chargingStationID string, response ocpp.Response, requestId string) {
-	if callback, ok := cs.callbacks[chargingStationID]; ok {
-		delete(cs.callbacks, chargingStationID)
+	if callback, ok := cs.callbacks[requestId]; ok {
+		delete(cs.callbacks, requestId)
 		callback(response, nil)
 	} else {
 		log.WithFields(log.Fields{
@@ -585,8 +592,8 @@ func (cs *csms) handleIncomingResponse(chargingStationID string, response ocpp.R
 }
 
 func (cs *csms) handleIncomingError(chargingStationID string, err *ocpp.Error, details interface{}) {
-	if callback, ok := cs.callbacks[chargingStationID]; ok {
-		delete(cs.callbacks, chargingStationID)
+	if callback, ok := cs.callbacks[err.MessageId]; ok {
+		delete(cs.callbacks, err.MessageId)
 		callback(nil, err)
 	} else {
 		//TODO: print details
