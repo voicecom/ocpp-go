@@ -2,6 +2,7 @@ package ocppj
 
 import (
 	"fmt"
+
 	log "github.com/sirupsen/logrus"
 	"github.com/voicecom/ocpp-go/ocpp"
 	"github.com/voicecom/ocpp-go/ws"
@@ -108,25 +109,10 @@ func (s *Server) Stop() {
 //
 // Returns an error in the following cases:
 //
-// - the server wasn't started
-//
-// - message validation fails (request is malformed)
-//
 // - the endpoint doesn't support the feature
 //
 // - the output queue is full
-func (s *Server) SendRequest(clientID string, request ocpp.Request) error {
-	if !s.dispatcher.IsRunning() {
-		return fmt.Errorf("ocppj server is not started, couldn't send request")
-	}
-	err := Validate.Struct(request)
-	if err != nil {
-		return err
-	}
-	call, err := s.CreateCall(request.(ocpp.Request))
-	if err != nil {
-		return err
-	}
+func (s *Server) SendRequest(clientID string, call *Call) error {
 	jsonMessage, err := call.MarshalJSON()
 	if err != nil {
 		return err
@@ -138,6 +124,24 @@ func (s *Server) SendRequest(clientID string, request ocpp.Request) error {
 	}
 	log.Debugf("enqueued request %v - %v for client %v", call.UniqueId, call.Action, clientID)
 	return nil
+}
+
+// ValidateRequestAndCreateCall validates OCPP request and creates a given Call message
+//
+// Returns an error in the following cases:
+//
+// - the server wasn't started
+//
+// - message validation fails (request is malformed)
+func (s *Server) ValidateRequestAndCreateCall(request ocpp.Request) (*Call, error) {
+	if !s.dispatcher.IsRunning() {
+		return nil, fmt.Errorf("ocppj server is not started, couldn't send request")
+	}
+	err := Validate.Struct(request)
+	if err != nil {
+		return nil, err
+	}
+	return s.CreateCall(request.(ocpp.Request))
 }
 
 // Sends an OCPP Response to a client, identified by the clientID parameter.
